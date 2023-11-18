@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
-  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#000" }],
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
   initialScale: 1,
   width: "device-width",
   viewportFit: "cover",
