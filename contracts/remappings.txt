@@ -4,3 +4,4 @@ forge-std/=lib/forge-std/src/
 layerzero/=lib/layerzero/contracts/
 lens/=lib/lens/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
+src/=src/
