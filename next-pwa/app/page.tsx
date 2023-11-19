@@ -56,10 +56,6 @@ function Profiles({
     }
   })
 
-  console.log('address', address)
-  console.log('handle', handle)
-  console.log('profiles', profiles)
-
   const showNoLensProfiles =
     address && !handle && profiles && profiles.length === 0;
   const showSignInWithLens =

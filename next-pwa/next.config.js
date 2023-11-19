@@ -10,7 +10,15 @@ const nextConfig = {
     webpack: config => {
         config.externals.push('pino-pretty', 'lokijs', 'encoding', 'node-gyp-build')
         return config
-    }
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+            },
+        ],
+    },
 };
 
 // Configuration object tells the next-pwa plugin 

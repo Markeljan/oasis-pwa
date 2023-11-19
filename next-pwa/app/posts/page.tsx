@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input"
 import { publicClient } from "@/providers/wallet-provider";
 import { SearchIcon } from "lucide-react";
 import { isValidUrl } from "@/lib/utils";
+import Link from "next/link";
 
 const ActionBox = ({
   post,
@@ -99,12 +100,12 @@ const ActionBox = ({
           height={300}
         />
         <Button asChild variant='link'>
-          <a
+          <Link
             href={`${blockExplorerLink}${post.transactionHash}`}
             target="_blank"
           >
             Txn Link
-          </a>
+          </Link>
         </Button>
 
       </div>
@@ -128,13 +129,13 @@ const ActionBox = ({
           Post Message
         </Button>
       )}
-      {createState && <p className="mt-2 text-primary">{createState}</p>}
+      {createState && <p className="mt-2 text-primary text-center">{createState.substring(0, 18) + "..."}</p>}
       {txHash && (
-        <a
-          href={`${blockExplorerLink}${txHash}`}
-        >
+        <Button asChild variant='link'>
+        <Link href={`${blockExplorerLink}${txHash}`} target="_blank">
           Block Explorer Link
-        </a>
+        </Link>
+        </Button>
       )}
     </div>
   );
@@ -157,7 +158,7 @@ export default function Actions() {
   });
 
   return (
-    <div className="flex flex-1 items-center flex-col bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen pt-10">
+    <div className="postBox flex flex-col justify-enter items-center bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen pb-10">
       {
         address && profileId && (
           <div className="my-3">
@@ -174,24 +175,28 @@ export default function Actions() {
           </div>
         )
       }
-      {loading && <div className="spinner" />}
-      {filteredPosts.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-screen gap-2 pb-24">
-          <SearchIcon className="h-20 w-20 mb-10" />
-          <p className="text-2xl">No Posts</p>
-          <p className="text-2xl">Create one!</p>
-        </div>
-      ) : (
-        filteredPosts.map((post, index) => (
-          <ActionBox
-            key={index}
-            post={post}
-            address={address}
-            profileId={profileId}
-            refresh={refresh}
-          />
-        ))
-      )}
+      <div className="flex flex-col pt-8 pb-20 gap-4">
+        {loading && <div className="spinner" />}
+        {filteredPosts.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-screen pb-24">
+            <SearchIcon className="h-20 w-20 mb-10" />
+            <p className="text-2xl">No Posts</p>
+            <p className="text-2xl">Create one!</p>
+          </div>
+        ) : (
+          filteredPosts.map((post, index) => (
+            <div key={index} className="">
+              <ActionBox
+                key={index}
+                post={post}
+                address={address}
+                profileId={profileId}
+                refresh={refresh}
+              />
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };

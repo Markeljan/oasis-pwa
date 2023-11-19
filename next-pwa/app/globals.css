@@ -40,6 +40,10 @@
 
     --radius: 0.5rem;
   }
+
+  .postBox {
+    overflow-y: scroll;
+  }
 }
 
 @layer base {

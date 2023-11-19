@@ -39,7 +39,6 @@ export const LensHelloWorldProvider: FC<LensHelloWorldProviderProps> = ({
   const [loginData, setLoginData] = useState<LoginData>();
 
   const connect = (loginDataParam: LoginData) => {
-    console.log('loginDataParam: ', loginDataParam)
     setLoginData(loginDataParam);
   };
 

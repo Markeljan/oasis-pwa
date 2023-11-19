@@ -21,9 +21,8 @@ export default function Signals() {
   });
 
   return (
-    <div className="flex flex-col justify-center items-center bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen">
-
-      < div className="flex mt-20">
+    <div className="flex flex-col items-center bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen">
+      <div className="flex pt-24">
         <Input
           className="w-1/4"
           type="checkbox"

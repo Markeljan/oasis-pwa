@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@lens-protocol/react-web':
-    specifier: 2.0.0-alpha.16
-    version: 2.0.0-alpha.16(@apollo/client@3.8.7)(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 2.0.0-alpha.21
+    version: 2.0.0-alpha.21(@apollo/client@3.8.7)(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)
   '@lens-protocol/wagmi':
-    specifier: alpha
-    version: 3.0.0-alpha.18(@lens-protocol/react-web@2.0.0-alpha.16)(ethers@5.7.2)(viem@1.19.3)(wagmi@1.4.7)
+    specifier: 3.0.0-alpha.18
+    version: 3.0.0-alpha.18(@lens-protocol/react-web@2.0.0-alpha.21)(ethers@5.7.2)(viem@1.19.3)(wagmi@1.4.7)
   '@radix-ui/react-slot':
     specifier: ^1.0.2
     version: 1.0.2(@types/react@18.2.37)(react@18.2.0)
@@ -1770,8 +1770,8 @@ packages:
     resolution: {integrity: sha512-mscwGroSJQrCTjtNGBu+18FQbZYA4+q6Tyx6K7CXHl6AwgZKbWfZYdgP2F+fyZcRUdGRsMX8QtvU61VcGGtO1A==}
     dev: false
 
-  /@lens-protocol/api-bindings@0.11.0-alpha.16(@apollo/client@3.8.7)(ethers@5.7.2)(react@18.2.0):
-    resolution: {integrity: sha512-Ylsi91bPd2TXSbIr/oJCFRffTv8YA8BnweZEuVzSxKARZvOYdLLGAuQIe60mw1TblzPFfVllywoRGp7EdPR9fw==}
+  /@lens-protocol/api-bindings@0.11.0-alpha.19(@apollo/client@3.8.7)(ethers@5.7.2)(react@18.2.0):
+    resolution: {integrity: sha512-G9oCUGkc0gycDvFccqfXUNdF3vASX6gYL5340PIpk3U6EvwGGjKrY2QyU9MEUtYJqnpBNk+sZ0Y+/MvCSIXTig==}
     peerDependencies:
       '@apollo/client': ^3.8.5
       '@faker-js/faker': ^7.6.0
@@ -1784,8 +1784,8 @@ packages:
         optional: true
     dependencies:
       '@apollo/client': 3.8.7(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
-      '@lens-protocol/domain': 0.11.0-alpha.11(ethers@5.7.2)
-      '@lens-protocol/shared-kernel': 0.11.0-alpha.6(ethers@5.7.2)
+      '@lens-protocol/domain': 0.11.0-alpha.14(ethers@5.7.2)
+      '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
       graphql: 16.8.1
       graphql-tag: 2.12.6(graphql@16.8.1)
       react: 18.2.0
@@ -1797,15 +1797,15 @@ packages:
       - wait-for-expect
     dev: false
 
-  /@lens-protocol/blockchain-bindings@0.10.0-alpha.11(ethers@5.7.2):
-    resolution: {integrity: sha512-R56LMTqNr1XgH8A8Di6auF3r5vcfCzYJH+C5N12bFhjzgUUwhmQpSKkEnrn8l73KvhTz5pZWqxkCjVJjxWNfwQ==}
+  /@lens-protocol/blockchain-bindings@0.10.0-alpha.14(ethers@5.7.2):
+    resolution: {integrity: sha512-AVEUUWu1FqO2B8wsKvDyfxIueDgNSYXb1pq9lHhZSB2GWzzbM+lUXt93TnqjrjXDlbb6EH13TBJEY9zRBevxCg==}
     peerDependencies:
       ethers: ^5.7.2
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@ethersproject/providers': 5.7.2
-      '@lens-protocol/domain': 0.11.0-alpha.11(ethers@5.7.2)
-      '@lens-protocol/shared-kernel': 0.11.0-alpha.6(ethers@5.7.2)
+      '@lens-protocol/domain': 0.11.0-alpha.14(ethers@5.7.2)
+      '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
       ethers: 5.7.2
       tslib: 2.6.2
     transitivePeerDependencies:
@@ -1818,8 +1818,8 @@ packages:
       - wait-for-expect
     dev: false
 
-  /@lens-protocol/domain@0.11.0-alpha.11(ethers@5.7.2):
-    resolution: {integrity: sha512-Y6EfbZ1dRz9GROgEmZ+yJLficgGTL3Bj7AD+o2E5V44VxzMWMdrUIWkRxCEx+SYi+uXFj3N6pwr9jlPheow9Zw==}
+  /@lens-protocol/domain@0.11.0-alpha.14(ethers@5.7.2):
+    resolution: {integrity: sha512-8NKQ52nY5VSaDIdi3aQk/WonEsgsY6aqs+B1IN29Fsw0b/+dtLjf4Vk66Z7yHwwlC3hhB6rSw2AFLjkUvSvnUw==}
     peerDependencies:
       '@faker-js/faker': ^7.6.0
       '@jest/globals': ^29.3.1
@@ -1838,7 +1838,7 @@ packages:
       wait-for-expect:
         optional: true
     dependencies:
-      '@lens-protocol/shared-kernel': 0.11.0-alpha.6(ethers@5.7.2)
+      '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
       tslib: 2.6.2
     transitivePeerDependencies:
       - ethers
@@ -1856,8 +1856,8 @@ packages:
       uuid: 9.0.1
     dev: false
 
-  /@lens-protocol/react-web@2.0.0-alpha.16(@apollo/client@3.8.7)(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-BScO1ePnQvZlg0FLZ2uIlFwzbRe93hC6blU2B0IJeQ+eBqXawL4dS3Rry0KfxR52tm8o3rdLAvSVKSekFmTF+w==}
+  /@lens-protocol/react-web@2.0.0-alpha.21(@apollo/client@3.8.7)(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-RvPvLBRmcnYbsRzqS9LVnqIVbu9GX63Fu7iC+aOkgGfUCnzXHTOcxc9S+GzMyMdwTLzaCxXki00JDiVgquhVrA==}
     peerDependencies:
       '@lens-protocol/metadata': ^1.0.0
       '@xmtp/react-sdk': '*'
@@ -1867,12 +1867,12 @@ packages:
       '@xmtp/react-sdk':
         optional: true
     dependencies:
-      '@lens-protocol/api-bindings': 0.11.0-alpha.16(@apollo/client@3.8.7)(ethers@5.7.2)(react@18.2.0)
-      '@lens-protocol/domain': 0.11.0-alpha.11(ethers@5.7.2)
+      '@lens-protocol/api-bindings': 0.11.0-alpha.19(@apollo/client@3.8.7)(ethers@5.7.2)(react@18.2.0)
+      '@lens-protocol/domain': 0.11.0-alpha.14(ethers@5.7.2)
       '@lens-protocol/metadata': 1.0.5
-      '@lens-protocol/react': 2.0.0-alpha.16(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)
-      '@lens-protocol/shared-kernel': 0.11.0-alpha.6(ethers@5.7.2)
-      '@lens-protocol/storage': 0.7.5-alpha.4(ethers@5.7.2)
+      '@lens-protocol/react': 2.0.0-alpha.21(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)
+      '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
+      '@lens-protocol/storage': 0.7.5-alpha.6(ethers@5.7.2)
       ethers: 5.7.2
       react: 18.2.0
       tslib: 2.6.2
@@ -1890,8 +1890,8 @@ packages:
       - wait-for-expect
     dev: false
 
-  /@lens-protocol/react@2.0.0-alpha.16(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-UurJd2P7pTVvXOxY4zS2sBV0XHhQtZDHBTjMMW6UZPF0QBMg41aOTUcv5UiB/HnFoceAZVhuoqsbL/QwGqTqOg==}
+  /@lens-protocol/react@2.0.0-alpha.21(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-wcHVrkUxMWswa6jTXGYY9vviVwE1v9XZOqvW8Ssmj/VWiHNaZakMFQy20+kyeoXxItuFDqggXLJNhp5fxwHwTQ==}
     peerDependencies:
       '@lens-protocol/metadata': ^1.0.0
       ethers: ^5.7.2
@@ -1905,12 +1905,12 @@ packages:
       '@ethersproject/hash': 5.7.0
       '@ethersproject/providers': 5.7.2
       '@ethersproject/wallet': 5.7.0
-      '@lens-protocol/api-bindings': 0.11.0-alpha.16(@apollo/client@3.8.7)(ethers@5.7.2)(react@18.2.0)
-      '@lens-protocol/blockchain-bindings': 0.10.0-alpha.11(ethers@5.7.2)
-      '@lens-protocol/domain': 0.11.0-alpha.11(ethers@5.7.2)
+      '@lens-protocol/api-bindings': 0.11.0-alpha.19(@apollo/client@3.8.7)(ethers@5.7.2)(react@18.2.0)
+      '@lens-protocol/blockchain-bindings': 0.10.0-alpha.14(ethers@5.7.2)
+      '@lens-protocol/domain': 0.11.0-alpha.14(ethers@5.7.2)
       '@lens-protocol/metadata': 1.0.5
-      '@lens-protocol/shared-kernel': 0.11.0-alpha.6(ethers@5.7.2)
-      '@lens-protocol/storage': 0.7.5-alpha.4(ethers@5.7.2)
+      '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
+      '@lens-protocol/storage': 0.7.5-alpha.6(ethers@5.7.2)
       ethers: 5.7.2
       graphql: 16.8.1
       jwt-decode: 3.1.2
@@ -1932,21 +1932,6 @@ packages:
       - wait-for-expect
     dev: false
 
-  /@lens-protocol/shared-kernel@0.11.0-alpha.6(ethers@5.7.2):
-    resolution: {integrity: sha512-nKBIuLY+pzvQ0+/b2fyHqq93xbfQWFj1rFuAqMYrjodp9QA35GwSBUb4ImBRpvPir0II5KjK1ge4rZ/nMaAvSg==}
-    peerDependencies:
-      ethers: ^5.7.2
-    peerDependenciesMeta:
-      ethers:
-        optional: true
-    dependencies:
-      decimal.js: 10.4.3
-      ethers: 5.7.2
-      lodash: 4.17.21
-      tslib: 2.6.2
-      uuid: 9.0.1
-    dev: false
-
   /@lens-protocol/shared-kernel@0.11.0-alpha.8(ethers@5.7.2):
     resolution: {integrity: sha512-/hL8ChEc8QimdMrOVSzZO9qWBB5aYsUYUBBwU8ac4+N+OrxO90tcyesTQHN+8Ks4CDb/ZDZiBMs/dNWnn0uybw==}
     peerDependencies:
@@ -1961,17 +1946,17 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@lens-protocol/storage@0.7.5-alpha.4(ethers@5.7.2):
-    resolution: {integrity: sha512-k8Art0Rib+z8Ne8LEGgHhkdPp2PDd8fvERbbwrFCjMcL9aRvlzp6QTrmDzpMZ5CV8M9A3BALGPZyv/p6wg9wZg==}
+  /@lens-protocol/storage@0.7.5-alpha.6(ethers@5.7.2):
+    resolution: {integrity: sha512-abWddiHZBOVxRcLrdNxJ3atD4g/bGCsMs0T31FHc4yYxwj38cOoBqTT01wRfcgCmuq8Tg+2dA2GlKKu2eeO8kA==}
     dependencies:
-      '@lens-protocol/shared-kernel': 0.11.0-alpha.6(ethers@5.7.2)
+      '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
       tslib: 2.6.2
       zod: 3.22.4
     transitivePeerDependencies:
       - ethers
     dev: false
 
-  /@lens-protocol/wagmi@3.0.0-alpha.18(@lens-protocol/react-web@2.0.0-alpha.16)(ethers@5.7.2)(viem@1.19.3)(wagmi@1.4.7):
+  /@lens-protocol/wagmi@3.0.0-alpha.18(@lens-protocol/react-web@2.0.0-alpha.21)(ethers@5.7.2)(viem@1.19.3)(wagmi@1.4.7):
     resolution: {integrity: sha512-Ug2OQqmRz4WnjccMQyjGbD8pdGxeV1a2rCeOhwZZcYAOh2piN79zEqiqb9Akqv+8DH1c775Vz7gsgzfb4bJBLg==}
     peerDependencies:
       '@lens-protocol/react-web': 2.0.0-alpha.21
@@ -1979,7 +1964,7 @@ packages:
       viem: ^1.16.6
       wagmi: ^1.1.0
     dependencies:
-      '@lens-protocol/react-web': 2.0.0-alpha.16(@apollo/client@3.8.7)(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)
+      '@lens-protocol/react-web': 2.0.0-alpha.21(@apollo/client@3.8.7)(@lens-protocol/metadata@1.0.5)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)
       '@lens-protocol/shared-kernel': 0.11.0-alpha.8(ethers@5.7.2)
       ethers: 5.7.2
       viem: 1.19.3(typescript@5.2.2)
@@ -2286,7 +2271,6 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
-      napi-wasm: 1.1.0
     dev: false
     bundledDependencies:
       - napi-wasm
@@ -6280,11 +6264,9 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
-  /lru-cache@10.0.2:
-    resolution: {integrity: sha512-Yj9mA8fPiVgOUpByoTZO5pNrcl5Yk37FcSHsUINpAsaBIEZIuqcCclDZJCVxqQShDsmYX8QG63svJiTbOATZwg==}
+  /lru-cache@10.0.3:
+    resolution: {integrity: sha512-B7gr+F6MkqB3uzINHXNctGieGsRTMwIBgxkp0yq/5BwcuDzD4A8wQpHQW6vDAm1uKSLQghmRdD9sKqf2vJ1cEg==}
     engines: {node: 14 || >=16.14}
-    dependencies:
-      semver: 7.5.4
     dev: false
 
   /lru-cache@5.1.1:
@@ -6447,10 +6429,6 @@ packages:
 
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
-    dev: false
-
-  /napi-wasm@1.1.0:
-    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
     dev: false
 
   /natural-compare@1.4.0:
@@ -8103,7 +8081,7 @@ packages:
       idb-keyval: 6.2.1
       ioredis: 5.3.2
       listhen: 1.5.5
-      lru-cache: 10.0.2
+      lru-cache: 10.0.3
       mri: 1.2.0
       node-fetch-native: 1.4.1
       ofetch: 1.3.3
