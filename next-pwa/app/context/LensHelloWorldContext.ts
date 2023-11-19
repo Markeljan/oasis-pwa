@@ -1,4 +1,5 @@
-// LensHelloWorldContext.tsx
+"use client"
+
 import React, { useContext } from "react";
 import { GreetEventFormatted, LoginData, PostCreatedEventFormatted } from "@/lib/types";
 

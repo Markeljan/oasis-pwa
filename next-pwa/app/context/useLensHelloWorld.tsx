@@ -1,6 +1,8 @@
+"use client";
+
 import { ReactNode, FC, useState, useEffect, useCallback } from "react";
 import { useAccount } from "wagmi";
-import LensHelloWorldContext from "./LensHelloWorldContext";
+import LensHelloWorldContext from "@/context/LensHelloWorldContext";
 import {
   GreetEvent,
   GreetEventFormatted,
@@ -16,10 +18,10 @@ import {
   openActionContractAddress,
   openActionsContractStartBlock,
 } from "@/lib/constants";
+import { publicClient } from "@/providers/wallet-provider";
 import { lensHubEventsAbi } from "@/lib/lensHubEventsAbi";
 import { helloWorldAbi } from "@/lib/helloWorldAbi";
 import { disconnect } from "wagmi/actions";
-import { publicClient } from "@/WalletConnectProvider";
 
 interface LensHelloWorldProviderProps {
   children: ReactNode;

@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { useLensHelloWorld } from "../context/LensHelloWorldContext";
 import { encodeAbiParameters, encodeFunctionData } from "viem";
@@ -7,12 +9,12 @@ import {
   openActionContractAddress,
 } from "@/lib/constants";
 import { lensHubAbi } from "@/lib/lensHubAbi";
-import { useNetwork, useWalletClient } from "wagmi";
+import { useWalletClient } from "wagmi";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { publicClient } from "@/WalletConnectProvider";
+import { publicClient } from "@/providers/wallet-provider";
 
-export const Create = () => {
+export default function Agents() {
   const { address, profileId, refresh } = useLensHelloWorld();
   const { data: walletClient } = useWalletClient();
   const [createState, setCreateState] = useState<string | undefined>();
@@ -65,10 +67,10 @@ export const Create = () => {
   };
 
   return (
-    <>
-      <div className="pb-4">
+    <div className="flex flex-1 justify-center items-center flex-col bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen">
+      <div className="mb-20">
         {
-          address && profileId && (
+          address && (
             <div className="flex flex-1 flex-col">
               <div className="flex flex-1 flex-col">
                 <p className="my-2">
@@ -120,6 +122,6 @@ export const Create = () => {
           )
         }
       </div>
-    </>
+    </div>
   );
 };

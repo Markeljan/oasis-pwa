@@ -1,4 +1,4 @@
-# Lens Hello World Smart Post
+# Oasis Dapp Lens Protocol + Smart Posts
 
 This repo contains smart contracts and a UI which demonstrates a Lens Smart Post to call a helloWorld() function on an external contract.
 

@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { useState } from "react";
 import {
   lensHubProxyAddress,
@@ -5,14 +8,16 @@ import {
   blockExplorerLink,
 } from "@/lib/constants";
 import { lensHubAbi } from "@/lib/lensHubAbi";
-import { useNetwork, useWalletClient } from "wagmi";
+import { useWalletClient } from "wagmi";
 import { PostCreatedEventFormatted } from "@/lib/types";
 import { fetchInitMessage } from "@/lib/fetchInitMessage";
 import { useLensHelloWorld } from "../context/LensHelloWorldContext";
 import { encodeAbiParameters, encodeFunctionData } from "viem";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { publicClient } from "@/WalletConnectProvider";
+import { publicClient } from "@/providers/wallet-provider";
+import { SearchIcon } from "lucide-react";
+import { isValidUrl } from "@/lib/utils";
 
 const ActionBox = ({
   post,
@@ -29,7 +34,8 @@ const ActionBox = ({
   const [createState, setCreateState] = useState<string | undefined>();
   const [txHash, setTxHash] = useState<string | undefined>();
   const { data: walletClient } = useWalletClient();
-  const { chain } = useNetwork()
+  const imageUrl = isValidUrl(post.args.postParams.contentURI) ? post.args.postParams.contentURI : '/oasis.png';
+
 
   const execute = async (
     post: PostCreatedEventFormatted,
@@ -78,17 +84,19 @@ const ActionBox = ({
   };
 
   return (
-    <div className="flex flex-col border rounded-xl px-5 py-3 mb-3 justify-center">
+    <div className="flex flex-col border rounded-xl px-5 py-3 mb-3 justify-center pt-10">
       <div className="flex flex-col justify-center items-center">
         <p>ProfileID: {post.args.postParams.profileId}</p>
         <p>PublicationID: {post.args.pubId}</p>
         <p>
           Initialize Message: {fetchInitMessage(post)}
         </p>
-        <img
+        <Image
           className="my-3 rounded-2xl"
-          src={post.args.postParams.contentURI}
+          src={imageUrl}
           alt="Post"
+          width={300}
+          height={300}
         />
         <Button asChild variant='link'>
           <a
@@ -132,7 +140,7 @@ const ActionBox = ({
   );
 };
 
-export const Actions = () => {
+export default function Actions() {
   const [filterOwnPosts, setFilterOwnPosts] = useState(false);
   const { address, profileId, posts, refresh, loading } = useLensHelloWorld();
 
@@ -149,7 +157,7 @@ export const Actions = () => {
   });
 
   return (
-    <>
+    <div className="flex flex-1 items-center flex-col bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen pt-10">
       {
         address && profileId && (
           <div className="my-3">
@@ -168,7 +176,11 @@ export const Actions = () => {
       }
       {loading && <div className="spinner" />}
       {filteredPosts.length === 0 ? (
-        <p>None</p>
+        <div className="flex flex-col items-center justify-center h-screen gap-2 pb-24">
+          <SearchIcon className="h-20 w-20 mb-10" />
+          <p className="text-2xl">No Posts</p>
+          <p className="text-2xl">Create one!</p>
+        </div>
       ) : (
         filteredPosts.map((post, index) => (
           <ActionBox
@@ -180,6 +192,6 @@ export const Actions = () => {
           />
         ))
       )}
-    </>
+    </div>
   );
 };

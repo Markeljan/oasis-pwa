@@ -6,6 +6,8 @@ import { Web3Modal } from "@/providers/wallet-provider";
 import { LensDataProvider } from "@/providers/lens-data-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 import { cn } from "@/lib/utils"
+import { NavOverlay } from "./components/nav-overlay";
+import { LensHelloWorldProvider } from "./context/useLensHelloWorld";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -14,7 +16,7 @@ export const fontSans = FontSans({
 
 
 export const viewport: Viewport = {
-  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#000" }],
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "grey-900" }],
   initialScale: 1,
   width: "device-width",
   viewportFit: "cover",
@@ -53,7 +55,10 @@ export default function RootLayout({
         <Web3Modal>
           <ToastProvider />
           <LensDataProvider>
-            {children}
+            <LensHelloWorldProvider>
+              <NavOverlay />
+              {children}
+            </LensHelloWorldProvider>
           </LensDataProvider>
         </Web3Modal>
       </body>

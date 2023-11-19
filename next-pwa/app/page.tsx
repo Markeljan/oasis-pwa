@@ -2,22 +2,16 @@
 
 import { ProfileId, useLogin, useProfiles } from "@lens-protocol/react-web";
 import { useLensHelloWorld } from "@/context/LensHelloWorldContext";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { LoginData } from "@/lib/types";
 import { Button } from '@/components/ui/button'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
-import { PenLine, Rows, Activity, LogIn, Unplug } from 'lucide-react'
+import { LogIn } from 'lucide-react'
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string>("create");
   const { address, handle, connect } = useLensHelloWorld();
   const { open } = useWeb3Modal()
   const { execute: executeLogin, data: loginData } = useLogin()
-  const [connected, setConnected] = useState(false)
-
-  useEffect(() => {
-    setConnected(true)
-  }, [])
 
   useEffect(() => {
     if (loginData) {
@@ -35,12 +29,9 @@ export default function Home() {
     }
   }
 
-  if (!connected) return null
   return (
     <Profiles
       address={address}
-      activeSection={activeSection}
-      setActiveSection={setActiveSection}
       handle={handle}
       executeLogin={logIn}
       open={open}
@@ -49,7 +40,7 @@ export default function Home() {
 }
 
 function Profiles({
-  address, activeSection, setActiveSection, handle, executeLogin, open
+  address, handle, executeLogin
 }: any) {
   const { data: profiles } = useProfiles({
     where: {
@@ -63,51 +54,12 @@ function Profiles({
     address && !handle && profiles && profiles.length > 0;
 
   return (
-    <div
-      className="flex flex-1 justify-center items-center flex-col"
-    >
-      <div className="mt-20">
-        <h1
-          className="text-5xl font-geist-black"
-        >Hello World Smart Post</h1>
-      </div>
-      <div
-        className="mt-6 mb-6"
-      >
-        <Button
-          className="px-10 mx-2"
-        >
-          <PenLine className="mr-2 h-4 w-4" />
-          Create Smart Post
-        </Button>
-        <Button
-          variant={activeSection === "actions" ? "default" : "secondary"}
-          onClick={() => setActiveSection("actions")}
-          className="px-10 mx-2"
-        >
-          <Rows className="mr-2 h-4 w-4" />
-          View Smart Posts
-        </Button>
-        <Button
-          variant={activeSection === "events" ? "default" : "secondary"}
-          onClick={() => setActiveSection("events")}
-          className="px-10 mx-2"
-        >
-          <Activity className="mr-2 h-4 w-4" />
-          Events
-        </Button>
-      </div>
-      {
-        !address && (
-          <Button
-            variant='outline'
-            className="my-4"
-            onClick={() => open()}
-          >
-            <Unplug className="mr-2 h-4 w-4" />
-            Connect Wallet to Create Post</Button>
-        )
-      }
+    <div className="flex flex-1 justify-center items-center flex-col bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen">
+
+      <h1 className="text-5xl font-bold text-black mb-20">
+        🏝️ Oasis PWA 🤖
+      </h1>
+
       {showNoLensProfiles && <p>No Lens Profiles found for this address</p>}
       {showSignInWithLens && (
         <Button
@@ -115,7 +67,7 @@ function Profiles({
           className="my-4"
           onClick={() => executeLogin({ address, profileId: profiles[0].id })}
         >
-          <LogIn className="mr-2 h-4 w-4" />
+          <LogIn className="mr-2 h-6 w-6" />
           Sign in with {profiles[0].handle?.localName}.lens
         </Button>
       )

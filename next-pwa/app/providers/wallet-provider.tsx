@@ -17,6 +17,8 @@ const metadata = {
 const chains = [polygonMumbai]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata })
 
+export const publicClient = wagmiConfig.getPublicClient()
+
 createWeb3Modal({ wagmiConfig, projectId, chains })
 
 export function Web3Modal({ children }: { children: React.ReactNode }) {
