@@ -16,7 +16,6 @@ export const fontSans = FontSans({
 
 
 export const viewport: Viewport = {
-  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "grey-900" }],
   initialScale: 1,
   width: "device-width",
   viewportFit: "cover",
