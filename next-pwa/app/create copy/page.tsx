@@ -5,12 +5,12 @@ import {
   blockExplorerLink,
   lensHubProxyAddress,
   openActionContractAddress,
-} from "@/lib/constants";
-import { lensHubAbi } from "@/lib/lensHubAbi";
-import { useNetwork, useWalletClient } from "wagmi";
+} from "../utils/constants";
+import { lensHubAbi } from "../utils/lensHubAbi";
+import { useWalletClient } from "wagmi";
+import { publicClient } from "../main";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { publicClient } from "@/WalletConnectProvider";
 
 export const Create = () => {
   const { address, profileId, refresh } = useLensHelloWorld();
@@ -52,7 +52,9 @@ export const Create = () => {
       });
       setCreateState("PENDING IN MEMPOOL");
       setTxHash(hash);
-      const result = await publicClient.waitForTransactionReceipt({ hash });
+      const result = await publicClient({
+        chainId: 80001,
+      }).waitForTransactionReceipt({ hash });
       if (result.status === "success") {
         setCreateState("SUCCESS");
         refresh();

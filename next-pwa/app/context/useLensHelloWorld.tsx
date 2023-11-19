@@ -1,6 +1,6 @@
 import { ReactNode, FC, useState, useEffect, useCallback } from "react";
 import { useAccount } from "wagmi";
-import LensHelloWorldContext from "./LensHellowWorldContext";
+import LensHelloWorldContext from "./LensHelloWorldContext";
 import {
   GreetEvent,
   GreetEventFormatted,

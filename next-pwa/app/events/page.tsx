@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLensHelloWorld } from "../context/LensHellowWorldContext";
+import { useLensHelloWorld } from "../context/LensHelloWorldContext";
 import { blockExplorerLink } from "@/lib/constants";
 
 export const Events = () => {

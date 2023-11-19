@@ -1,8 +1,9 @@
-import "../styles/Action.css";
+"use client";
+
 import { ProfileId, useLogin, useProfiles } from "@lens-protocol/react-web";
 import { Actions } from "../act/page";
 import { Events } from "../events/page";
-import { useLensHelloWorld } from "../context/LensHellowWorldContext";
+import { useLensHelloWorld } from "../context/LensHelloWorldContext";
 import { Create } from "../create/page";
 import { useEffect, useState } from "react";
 import { LoginData } from "@/lib/types";
@@ -10,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 import { PenLine, Rows, Activity, LogIn, Unplug } from 'lucide-react'
 
-export const Home = () => {
+export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("create");
   const { address, handle, connect } = useLensHelloWorld();
   const { open } = useWeb3Modal()

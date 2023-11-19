@@ -8,7 +8,7 @@ import { lensHubAbi } from "@/lib/lensHubAbi";
 import { useNetwork, useWalletClient } from "wagmi";
 import { PostCreatedEventFormatted } from "@/lib/types";
 import { fetchInitMessage } from "@/lib/fetchInitMessage";
-import { useLensHelloWorld } from "../context/LensHellowWorldContext";
+import { useLensHelloWorld } from "../context/LensHelloWorldContext";
 import { encodeAbiParameters, encodeFunctionData } from "viem";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"

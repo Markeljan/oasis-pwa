@@ -4,7 +4,7 @@ import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
 import { LensProvider } from "@lens-protocol/react-web";
 import { LensHelloWorldProvider } from "../context/useLensHelloWorld.jsx";
 import { WalletConnectProvider } from '../WalletConnectProvider.jsx' 
-import { useLensHelloWorld } from "../context/LensHellowWorldContext.js";
+import { useLensHelloWorld } from "../context/LensHelloWorldContext.js";
 import { Button } from '@/components/ui/button'
 
 const lensConfig: LensConfig = {
