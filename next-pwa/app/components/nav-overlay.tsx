@@ -34,7 +34,7 @@ export function NavOverlay() {
                         Posts
                     </Button>
                 </Link>
-                <Link href="/signal">
+                <Link href="/signals">
                     <Button>
                         <Activity className="mr-2 h-4 w-4" />
                         Signals

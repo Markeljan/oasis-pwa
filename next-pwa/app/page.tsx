@@ -2,7 +2,7 @@
 
 import { ProfileId, useLogin, useProfiles } from "@lens-protocol/react-web";
 import { useLensHelloWorld } from "@/context/LensHelloWorldContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { LoginData } from "@/lib/types";
 import { Button } from '@/components/ui/button'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
@@ -11,8 +11,13 @@ import { LogIn } from 'lucide-react'
 export default function Home() {
   const { address, handle, connect } = useLensHelloWorld();
   const { open } = useWeb3Modal()
-  const { execute: executeLogin, data: loginData } = useLogin()
-
+  const { execute: executeLogin, data: loginData } = useLogin();
+  const [connected, setConnected] = useState(false)
+  
+  useEffect(() => {
+    setConnected(true)
+  }, [])
+  
   useEffect(() => {
     if (loginData) {
       connect(loginData as LoginData);
@@ -29,6 +34,9 @@ export default function Home() {
     }
   }
 
+  if(!connected) return (
+    <div className="flex flex-1 justify-center items-center flex-col bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen"></div>
+  )
   return (
     <Profiles
       address={address}
@@ -44,9 +52,13 @@ function Profiles({
 }: any) {
   const { data: profiles } = useProfiles({
     where: {
-      ownedBy: [address || ''],
+      ownedBy: [address],
     }
   })
+
+  console.log('address', address)
+  console.log('handle', handle)
+  console.log('profiles', profiles)
 
   const showNoLensProfiles =
     address && !handle && profiles && profiles.length === 0;
