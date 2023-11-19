@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useLensHelloWorld } from "../context/LensHelloWorldContext";
 import { blockExplorerLink } from "@/lib/constants";
-import { XIcon } from "lucide-react";
+import { Link, XIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 export default function Signals() {
@@ -22,9 +22,9 @@ export default function Signals() {
 
   return (
     <div className="flex flex-col items-center bg-gradient-to-tl bg-[conic-gradient(var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100 h-screen w-screen">
-      <div className="flex pt-24">
+      <div className="flex md:flex-row pt-24">
         <Input
-          className="w-1/4"
+          className="flex md:w-1/4 text-enter"
           type="checkbox"
           id="filterCheckbox"
           checked={filterOwnEvents}
@@ -43,12 +43,12 @@ export default function Signals() {
           </div>
         ) : (
           filteredEvents.map((event, index) => (
-            <div key={index} className="border p-3 rounded-xl mt-3 w-[500px]">
-              <p className="font-geist-medium">{event.args.message}</p>
+            <div key={index} className="flex flex-col justify-center items-center text-center border p-3 rounded-xl mt-3 w-[500px]">
+              <p className="font-geist-medium">{event.args.message.substring(0, 60)}</p>
               <div className="inline-content">from</div>
-              <div className="inline-content">{event.args.actor}</div>
+              <div className="inline-content">{`${event.args.actor.substring(0, 9)}...${event.args.actor.substring(0, 9)}`}</div>
               <div className="header-text">
-                <a href={`${blockExplorerLink}${event.transactionHash}`}>Link</a>
+                <Link href={`${blockExplorerLink}${event.transactionHash}`} target="_blank">Link</Link>
               </div>
             </div>
           ))
