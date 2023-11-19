@@ -2,10 +2,12 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
+import { Web3Modal } from "@/components/wallet-provider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
-  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#000" }],
   initialScale: 1,
   width: "device-width",
   viewportFit: "cover",
@@ -37,7 +39,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Web3Modal>
+          {children}
+        </Web3Modal>
+      </body>
     </html>
   );
 }
