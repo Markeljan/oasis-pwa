@@ -1,10 +1,17 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google"
 
-import { Web3Modal } from "@/components/wallet-provider";
+import { Web3Modal } from "@/providers/wallet-provider";
+import { LensDataProvider } from "@/providers/lens-data-provider";
+import { ToastProvider } from "@/providers/toast-provider";
+import { cn } from "@/lib/utils"
 
-const inter = Inter({ subsets: ["latin"] });
+export const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
 
 export const viewport: Viewport = {
   themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#000" }],
@@ -39,9 +46,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn(
+        "min-h-screen bg-background font-sans antialiased",
+        fontSans.variable
+      )}>
         <Web3Modal>
-          {children}
+          <ToastProvider />
+          <LensDataProvider>
+            {children}
+          </LensDataProvider>
         </Web3Modal>
       </body>
     </html>
